@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.cabins.songs.model.Band" />
+	<import class="com.cabins.songs.model.Song" />
+	<class name="com.cabins.songs.model.impl.BandImpl" table="Cabins_Band">
+		<cache usage="read-write" />
+		<id name="bandId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="countryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ownedCategoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="coverCategoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.cabins.songs.model.impl.SongImpl" table="Cabins_Song">
+		<cache usage="read-write" />
+		<id name="songId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="threadId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="categoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="urlTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

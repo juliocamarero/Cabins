@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 5.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_5_2_0.dtd">
+<service-builder package-path="com.cabins.songs">
+
+  <author>Julio Camarero</author>
+
+  <namespace>Cabins</namespace>
+
+	<!-- Define the entity for the Cabins_Song table -->
+	<entity name="Song" local-service="true" remote-service="true">
+
+		<!-- Primary key column -->
+		<column name="songId" type="long" primary="true" />
+
+		<!-- Foreign key columns -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+
+		<column name="threadId" type="long" />
+		<column name="categoryId" type="long" />
+
+		<!-- Audit columns -->
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other columns -->
+		<column name="title" type="String" />
+		<column name="urlTitle" type="String" />
+
+
+	    <!-- Sort order -->
+		<order by="asc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder Methods -->
+		<finder name="GroupId" return-type="Collection">
+		  <finder-column name="groupId" />
+		</finder>
+		<finder name="categoryId" return-type="Collection">
+		  <finder-column name="categoryId" />
+		</finder>
+		<finder name="G_C" return-type="Collection">
+		    <finder-column name="groupId" />
+			<finder-column name="categoryId" />
+		</finder>
+		<finder name="G_UT" return-type="Song" unique="true">
+			<finder-column name="groupId" />
+			<finder-column name="urlTitle" />
+		</finder>
+
+
+		<!-- References -->
+
+		<reference package-path="com.cabins.songs" entity="Band" />
+	</entity>
+
+	<!-- Define the entity for the Cabins_Song table -->
+	<entity name="Band" local-service="true" remote-service="true">
+
+		<!-- Primary key column -->
+		<column name="bandId" type="long" primary="true" />
+
+		<!-- Foreign key columns -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+
+		<column name="ownedthreadId" type="long" />
+		<column name="coverthreadId" type="long" />
+
+        <!-- Sort order -->
+		<order by="asc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder Methods -->
+
+
+		<!-- References -->
+
+
+	</entity>
+</service-builder>

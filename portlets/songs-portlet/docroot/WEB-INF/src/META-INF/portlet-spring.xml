@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="com.cabins.songs.service.BandLocalService.impl" class="com.cabins.songs.service.impl.BandLocalServiceImpl" />
+	<bean id="com.cabins.songs.service.BandLocalService.velocity" class="com.cabins.songs.service.impl.BandLocalServiceImpl" />
+	<bean id="com.cabins.songs.service.BandLocalServiceUtil" class="com.cabins.songs.service.BandLocalServiceUtil">
+		<property name="service" ref="com.cabins.songs.service.BandLocalService.impl" />
+	</bean>
+	<bean id="com.cabins.songs.service.BandService.impl" class="com.cabins.songs.service.impl.BandServiceImpl" />
+	<bean id="com.cabins.songs.service.BandService.velocity" class="com.cabins.songs.service.impl.BandServiceImpl" />
+	<bean id="com.cabins.songs.service.BandServiceUtil" class="com.cabins.songs.service.BandServiceUtil">
+		<property name="service" ref="com.cabins.songs.service.BandService.impl" />
+	</bean>
+	<bean id="com.cabins.songs.service.persistence.BandPersistence.impl" class="com.cabins.songs.service.persistence.BandPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cabins.songs.service.persistence.BandUtil" class="com.cabins.songs.service.persistence.BandUtil">
+		<property name="persistence" ref="com.cabins.songs.service.persistence.BandPersistence.impl" />
+	</bean>
+	<bean id="com.cabins.songs.service.SongLocalService.impl" class="com.cabins.songs.service.impl.SongLocalServiceImpl" />
+	<bean id="com.cabins.songs.service.SongLocalService.velocity" class="com.cabins.songs.service.impl.SongLocalServiceImpl" />
+	<bean id="com.cabins.songs.service.SongLocalServiceUtil" class="com.cabins.songs.service.SongLocalServiceUtil">
+		<property name="service" ref="com.cabins.songs.service.SongLocalService.impl" />
+	</bean>
+	<bean id="com.cabins.songs.service.SongService.impl" class="com.cabins.songs.service.impl.SongServiceImpl" />
+	<bean id="com.cabins.songs.service.SongService.velocity" class="com.cabins.songs.service.impl.SongServiceImpl" />
+	<bean id="com.cabins.songs.service.SongServiceUtil" class="com.cabins.songs.service.SongServiceUtil">
+		<property name="service" ref="com.cabins.songs.service.SongService.impl" />
+	</bean>
+	<bean id="com.cabins.songs.service.persistence.SongPersistence.impl" class="com.cabins.songs.service.persistence.SongPersistenceImpl" parent="basePersistence" />
+	<bean id="com.cabins.songs.service.persistence.SongUtil" class="com.cabins.songs.service.persistence.SongUtil">
+		<property name="persistence" ref="com.cabins.songs.service.persistence.SongPersistence.impl" />
+	</bean>
+</beans>

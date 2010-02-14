@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.cabins.songs.model.impl.BandModelImpl">
+		<attributes>
+			<id name="bandId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="regionId" />
+			<basic name="countryId" />
+			<basic name="ownedCategoryId" />
+			<basic name="coverCategoryId" />
+			<transient name="primaryKey" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.cabins.songs.model.impl.SongModelImpl">
+		<attributes>
+			<id name="songId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="threadId" />
+			<basic name="categoryId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="title" />
+			<basic name="urlTitle" />
+			<transient name="primaryKey" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.cabins.songs.model.impl.BandImpl" name="Band">
+		<table name="Cabins_Band" />
+		<attributes />
+	</entity>
+	<entity class="com.cabins.songs.model.impl.SongImpl" name="Song">
+		<table name="Cabins_Song" />
+		<attributes />
+	</entity>
+</entity-mappings>
